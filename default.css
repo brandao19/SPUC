@@ -1,0 +1,31 @@
+.clearfix{
+    margin-bottom: 100px;
+}
+.formula, .mostra{
+    box-sizing: content-box;
+    height: 22px;
+    padding: 18px;
+    font-size: 16px;
+    margin-left: auto;
+    display: inline-block;
+}
+
+.form-control{
+    width: 70px;
+}
+
+.header-button {
+    box-sizing: content-box;
+    height: 22px;
+    padding: 8px;
+    font-size: 18px;
+    margin-left: auto;
+    display: inline-block;
+}
+
+caption {
+  color: #8b8682;
+  font-weight: bold;
+  font-size: 1.1em;
+  text-align: center;
+}

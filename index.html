@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Estimativa por Casos de Uso</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="default.css">
+    <script src="jquery-3.2.0.js"></script>
+  </head>
+  <body class="container">
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top custom">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">SPUC</a>
+        </div>
+
+        <div class="header-button">
+            <h6>UUCP = UAW + UUCW</h6>
+            <span class="show-uucp"></span>
+        </div>
+        <div class="header-button">
+            <h6>TCF = 0.6 + (0.01 x TFactor)</h6>
+            <span class="show-tcf"></span>
+        </div>
+        <div class="header-button">
+            <h6>EF = 1.4 + (-0.03 x EFactor)</h6>
+            <span class="show-ef"></span>
+        </div>
+        <div class="header-button">
+            <h6>UCP = UUCP x TCF x EF</h6>
+            <span class="show-ucp"></span>
+        </div>
+        <div class="header-button">
+            <h6>Hora = UCP x 20</h6>
+            <span class="show-horas"></span>
+        </div>
+        <div class="header-button pull-right">
+            <button id="calcular" type="button" name="button" class="btn btn-primary btn-sm">Calcular</button>
+        </div>
+      </div>
+
+    </nav>
+    <div class="clearfix">
+
+    </div>
+    <section class="pull-left">
+          <table class="table table-striped">
+            <caption>Peso dos Atores (UAW)</caption>
+    	    <tr>
+                <th>Tipo de Ator</th>
+                <th>Peso</th>
+        	    <th>Quantidade</th>
+        	    <th>total</th>
+            </tr>
+        	<tr class="ator">
+        		<td class="info-nome">simples</td>
+        		<td class="info-peso">1</td>
+        		<td><input class="input-ator form-control" type="number" min="0" max="100" step="1" value="0"></td>
+        		<td class="show-total"></td>
+        	</tr>
+            <tr class="ator">
+                <td class="info-nome">medio</td>
+        		<td class="info-peso">2</td>
+        		<td><input class="input-ator form-control" type="number" min="0" max="100" step="1" value="0"></td>
+        		<td class="show-total"></td>
+            </tr>
+            <tr class="ator">
+        		<td class="info-nome">complexo</td>
+        		<td class="info-peso">3</td>
+                <td><input class="input-ator form-control" type="number" min="0" max="100" step="1" value="0"></td>
+        		<td class="show-total"></td>
+            </tr>
+            <tr>
+                <td>UAW</td>
+                <td></td>
+                <td></td>
+                <td><input class="total-ator form-control" type="number" name="" value="0" disabled=""></td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="pull-right">
+        <table class="table table-striped">
+            <caption>Peso dos Casos de Uso (UUCW)</caption>
+            <tr>
+                <th>Tipo de Caso de Uso</th>
+                <th>Peso</th>
+                <th>Quantidade</th>
+                <th>total</th>
+            </tr>
+            <tr class="caso-uso">
+                <td class="tipo-caso-uso">simples</td>
+                <td class="peso-caso-uso">1</td>
+                <td><input class="input-caso-uso form-control" type="number" min="0" max="100" step="1" value="0"></td>
+                <td class="show-total-caso-uso"></td>
+            </tr>
+            <tr class="caso-uso">
+                <td class="tipo-caso-uso">medio</td>
+                <td class="peso-caso-uso">2</td>
+                <td><input class="input-caso-uso form-control" type="number" min="0" max="100" step="1" value="0"></td>
+                <td class="show-total-caso-uso"></td>
+            </tr>
+            <tr class="caso-uso">
+                <td class="tipo-caso-uso">complexo</td>
+                <td class="peso-caso-uso">3</td>
+                <td><input class="input-caso-uso form-control" type="number" min="0" max="100" step="1" value="0"></td>
+                <td class="show-total-caso-uso"></td>
+            </tr>
+            <tr>
+                <td>UUCW</td>
+                <td></td>
+                <td></td>
+                <td><input class="total-caso-uso form-control" type="number" name="" value="0" disabled=""></td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="row">
+
+    </section>
+
+    <section class="pull-left">
+        <table class="table table-striped">
+            <caption>Fatores Técnicos</caption>
+            <tr>
+                <th>Fator</th>
+                <th>Requisito</th>
+                <th>Peso</th>
+                <th>Quantidade</th>
+                <th>Total</th>
+            </tr>
+            <tr class="fator-tec">
+                <td>T1</td>
+                <td>Sistema distribuído</td>
+                <td class="peso-fator">2</td>
+                <td><input class="input-fator-tec form-control" type="number" min="0" max="5" step="1" value="0"></td>
+                <td class="show-total-fator-tec"></td>
+            </tr>
+            <tr class="fator-tec">
+                <td>T2</td>
+                <td>Tempo de Resposta</td>
+                <td class="peso-fator">2</td>
+                <td><input class="input-fator-tec form-control" type="number" min="0" max="5" step="1" value="0"></td>
+                <td class="show-total-fator-tec"></td>
+            </tr>
+            <tr class="fator-tec">
+                <td>T3</td>
+                <td>Eficiência</td>
+                <td class="peso-fator">1</td>
+                <td><input class="input-fator-tec form-control" type="number" min="0" max="5" step="1" value="0"></td>
+                <td class="show-total-fator-tec"></td>
+            </tr>
+            <tr class="fator-tec">
+                <td>T4</td>
+                <td>Processamento complexo</td>
+                <td class="peso-fator">1</td>
+                <td><input class="input-fator-tec form-control" type="number" min="0" max="5" step="1" value="0"></td>
+                <td class="show-total-fator-tec"></td>
+            </tr>
+            <tr class="fator-tec">
+                <td>T5</td>
+                <td>Código reusável</td>
+                <td class="peso-fator">1</td>
+                <td><input class="input-fator-tec form-control" type="number" min="0" max="5" step="1" value="0"></td>
+                <td class="show-total-fator-tec"></td>
+            </tr>
+            <tr class="fator-tec">
+                <td>T6</td>
+                <td>Facilidade de instalação</td>
+                <td class="peso-fator">0.5</td>
+                <td><input class="input-fator-tec form-control" type="number" min="0" max="5" step="1" value="0"></td>
+                <td class="show-total-fator-tec"></td>
+            </tr>
+            <tr class="fator-tec">
+                <td>T7</td>
+                <td>Facilidade de uso</td>
+                <td class="peso-fator">0.5</td>
+                <td><input class="input-fator-tec form-control" type="number" min="0" max="5" step="1" value="0"></td>
+                <td class="show-total-fator-tec"></td>
+            </tr>
+            <tr class="fator-tec">
+                <td>T8</td>
+                <td>Portabilidade</td>
+                <td class="peso-fator">2</td>
+                <td><input class="input-fator-tec form-control" type="number" min="0" max="5" step="1" value="0"></td>
+                <td class="show-total-fator-tec"></td>
+            </tr>
+            <tr class="fator-tec">
+                <td>T9</td>
+                <td>Facilidade de mudança</td>
+                <td class="peso-fator">1</td>
+                <td><input class="input-fator-tec form-control" type="number" min="0" max="5" step="1" value="0"></td>
+                <td class="show-total-fator-tec"></td>
+            </tr>
+            <tr class="fator-tec">
+                <td>T10</td>
+                <td>Concorrência</td>
+                <td class="peso-fator">1</td>
+                <td><input class="input-fator-tec form-control" type="number" min="0" max="5" step="1" value="0"></td>
+                <td class="show-total-fator-tec"></td>
+            </tr>
+            <tr class="fator-tec">
+                <td>T11</td>
+                <td>Recursos de segurança</td>
+                <td class="peso-fator">1</td>
+                <td><input class="input-fator-tec form-control" type="number" min="0" max="5" step="1" value="0"></td>
+                <td class="show-total-fator-tec"></td>
+            </tr>
+            <tr class="fator-tec">
+                <td>T12</td>
+                <td>Acessível por terceiros</td>
+                <td class="peso-fator">1</td>
+                <td><input class="input-fator-tec form-control" type="number" min="0" max="5" step="1" value="0"></td>
+                <td class="show-total-fator-tec"></td>
+            </tr>
+            <tr class="fator-tec">
+                <td>T13</td>
+                <td>Requer treinamento especial</td>
+                <td class="peso-fator">1</td>
+                <td><input class="input-fator-tec form-control" type="number" min="0" max="5" step="1" value="0"></td>
+                <td class="show-total-fator-tec"></td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td></td>
+                <td></td>
+                <td><input class="total-fator-tec form-control" type="number" name="" value="0" disabled=""></td>
+                <td class="total-fator-tec"></td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="pull-right">
+        <table class="table table-striped">
+            <caption>Fatores Ambientais</caption>
+            <tr>
+                <th>Fator</th>
+                <th>Requisito</th>
+                <th>Peso</th>
+                <th>Quantidade</th>
+                <th>Total</th>
+            </tr>
+            <tr class="fator-Amb">
+                <td>E1</td>
+                <td>Familiaridade com RUP ou outro processo formal</td>
+                <td class="fator-peso-amb">1.5</td>
+                <td><input class="input-fator-amb form-control" type="number" min="0" max="5" step="1" value="0"></td>
+                <td class="show-total-fator-amb"></td>
+            </tr>
+            <tr class="fator-Amb">
+                <td>E2</td>
+                <td>Experiência com a Aplicação em desenvolvimento</td>
+                <td class="fator-peso-amb">0.5</td>
+                <td><input class="input-fator-amb form-control" type="number" min="0" max="5" step="1" value="0"></td>
+                <td class="show-total-fator-amb"></td>
+            </tr>
+            <tr class="fator-Amb">
+                <td>E3</td>
+                <td>Experiência em Orientação a Objetos</td>
+                <td class="fator-peso-amb">1</td>
+                <td><input class="input-fator-amb form-control" type="number" min="0" max="5" step="1" value="0"></td>
+                <td class="show-total-fator-amb"></td>
+            </tr>
+            <tr class="fator-Amb">
+                <td>E4</td>
+                <td>Presença de analista experiente</td>
+                    <td class="fator-peso-amb">0.5</td>
+                <td><input class="input-fator-amb form-control" type="number" min="0" max="5" step="1" value="0"></td>
+                <td class="show-total-fator-amb"></td>
+            </tr>
+            <tr class="fator-Amb">
+                <td>E5</td>
+                <td>Motivação</td>
+                <td class="fator-peso-amb">1</td>
+                <td><input class="input-fator-amb form-control" type="number" min="0" max="5" step="1" value="0"></td>
+                <td class="show-total-fator-amb"></td>
+            </tr>
+            <tr class="fator-Amb">
+                <td>E6</td>
+                <td>Requisitos estáveis</td>
+                <td class="fator-peso-amb">2</td>
+                <td><input class="input-fator-amb form-control" type="number" min="0" max="5" step="1" value="0"></td>
+                <td class="show-total-fator-amb"></td>
+            </tr>
+            <tr class="fator-Amb">
+                <td>E7</td>
+                <td>Desenvolvedores em meio-expediente</td>
+                <td class="fator-peso-amb">-1</td>
+                <td><input class="input-fator-amb form-control" type="number" min="0" max="5" step="1" value="0"></td>
+                <td class="show-total-fator-amb"></td>
+            </tr>
+            <tr class="fator-Amb">
+                <td>E8</td>
+                <td>Linguagem de programação difícil</td>
+                <td class="fator-peso-amb">2</td>
+                <td><input class="input-fator-amb form-control" type="number" min="0" max="5" step="1" value="0"></td>
+                <td class="show-total-fator-amb"></td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td></td>
+                <td></td>
+                <td><input class="total-fator-amb form-control" type="number" name="" value="0" disabled=""></td>
+                <td class="total-fator-amb"></td>
+            </tr>
+        </table>
+    </section>
+
+     <script src="core.js"></script>
+
+  </body>
+</html>
